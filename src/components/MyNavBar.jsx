@@ -18,34 +18,36 @@ const MyNavBar = () => {
   }, []);
 
   return (
-    <nav className={`navbar ${isScrolled ? "is-scrolled" : ""}`}>
-      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+    <nav className={`fixed top-0 left-0 w-full z-30 transition-colors duration-500 ${
+        isScrolled ? "bg-[#1c1c1c]/95 shadow-md" : "bg-transparent"
+      }`}>
+      <div className="w-full mx-auto px-6 py-3 flex items-center justify-between">
+        <Link to="/" className="flex justify-between items-center">
           <img
-            src="public\Stride logo-01.png"
+            src="/Stride logo-01.png"
             alt="Stride Logo"
-            className="h-50 w-auto object-contain"
+            className="h-50 w-full"
           />
         </Link>
 
         <div className="flex items-center gap-6">
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8 font-medium text-[var(--color-on-primary)]">
-            <Link to="/" className="hover:text-secondary transition">Home</Link>
-            <Link to="/about" className="hover:text-secondary transition">About</Link>
-            <Link to="/contact" className="hover:text-secondary transition">Contact</Link>
+          {/* Nav Links */}
+          <ul className="hidden md:flex items-center gap-8 font-medium text-[var(--color-on-primary)]">
+            <li className="hover:text-secondary transition">Home</li>
+            <li className="hover:text-secondary transition">About</li>
+            <li className="hover:text-secondary transition">Contact</li>
             <Link
-              to="/auth/SignUpPage"
               className="btn btn-primary hover:bg-secondary"
+              onClick={() => (window.location.href = "/signin")}
             >
-              Join Us
+              Sign In
             </Link>
-          </div>
+          </ul>
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-black focus:outline-none"
+            className="md:hidden text-white focus:outline-none"
           >
             {menuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -54,10 +56,10 @@ const MyNavBar = () => {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="md:hidden flex flex-col items-center gap-6 py-6 bg-primary text-[var(--color-on-primary)] font-medium w-40 absolute right-4 rounded-2xl shadow-lg mb-0">
-          <Link to="/" onClick={() => setMenuOpen(false)} className="hover:text-secondary">Home</Link>
-          <Link to="/about" onClick={() => setMenuOpen(false)} className="hover:text-secondary">About</Link>
-          <Link to="/contact" onClick={() => setMenuOpen(false)} className="hover:text-secondary">Contact</Link>
+        <ul className="md:hidden flex flex-col items-center gap-6 py-6 bg-primary text-[var(--color-on-primary)] font-medium w-40 absolute right-4 rounded-2xl shadow-lg mb-0">
+          <li onClick={() => setMenuOpen(false)} className="hover:text-secondary">Home</li>
+          <li onClick={() => setMenuOpen(false)} className="hover:text-secondary">About</li>
+          <li onClick={() => setMenuOpen(false)} className="hover:text-secondary">Contact</li>
           <Link
             to="/auth/sign-up"
             onClick={() => setMenuOpen(false)}
@@ -65,7 +67,7 @@ const MyNavBar = () => {
           >
             Join Us
           </Link>
-        </div>
+        </ul>
       )}
     </nav>
   );
