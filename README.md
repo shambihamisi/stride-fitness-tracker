@@ -51,62 +51,6 @@ Icons	Lucide React
 Charts	Recharts
 API	WGER Exercise API
 
-Hosting	Vercel
-⚙️ Setup & Installation
-# Clone repository
-git clone https://github.com/your-username/stride-fitness-tracker.git
-cd stride-fitness-tracker
-
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-
-Then open http://localhost:5173
- in your browser.
-
-🔑 Environment Variables
-
-Create a .env.local file in the project root:
-
-VITE_WGER_API_KEY=your_api_token_here
-
-
-🔒 Make sure .env.local is included in .gitignore so your API key is never pushed to GitHub.
-
-🧱 Build & Deploy
-
-To build for production:
-
-npm run build
-
-
-To preview locally:
-
-npm run preview
-
-
-For deployment:
-
-Push to GitHub
-
-Import your repo to Vercel
-
-Add the environment variable VITE_WGER_API_KEY under Project → Settings → Environment Variables
-
-Click Deploy
-
-🧠 Future Improvements
-
-Add personalized nutrition suggestions
-
-Sync with wearable devices (Fitbit, Garmin, etc.)
-
-Add dark mode toggle
-
-Implement user authentication for data persistence
 
 📄 License
 
